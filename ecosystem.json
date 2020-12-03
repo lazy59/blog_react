@@ -1,0 +1,28 @@
+
+{
+    "apps": [{
+        "name": "blog_react", 
+        "script": "", 
+        "env": {
+            "COMON_VARIABLE": "true"
+        },
+        "env_production": {
+            "NODE_ENV": "production"
+        }
+     }],
+    "deploy": {
+        "production": {
+            "user": "bear_manager", 
+            "host": ["114.55.254.252"],
+            "port": "7676",
+            "ref": "origin/master",
+            "repo": "git@gitee.com:lazy-lee/blog_react.git",
+            "path": "/web/blog_react",
+            "ssh_options": "StrictHostKeyChecking=no",
+            "pre-deploy-local":"echo 'Deploy Done!'",
+            "post-deploy": "yarn install && yarn build",
+            "env": {
+                "NODE_ENV": "production"
+            }
+      }}
+ }
